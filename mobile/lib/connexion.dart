@@ -19,7 +19,7 @@ class connexionPage extends StatelessWidget {
         title: Row(
 
           children: [
-            Container(padding: const EdgeInsets.all(8.0), child: Text('AREA', style: TextStyle(fontSize: 45)), color: Color(0xff808080),)
+            Container(padding: const EdgeInsets.all(8.0), child: Text('EpiAirConsole', style: TextStyle(fontSize: 45)), color: Color(0xff808080),)
           ],
         ),
         centerTitle: true,
@@ -34,8 +34,8 @@ class connexionPage extends StatelessWidget {
               cursorColor: Colors.red,
               controller: searchController,
               decoration: InputDecoration(
-                hintText: "192.168.0.35",
-                labelText: "Enter an address",
+                hintText: "192.168.0.40",
+                labelText: "Enter an ip address",
                 labelStyle: new TextStyle(color: Color(0xff48ff00)),
                 contentPadding:
                 const EdgeInsets.fromLTRB(15.0, 20.0, 10.0, 25.0),
