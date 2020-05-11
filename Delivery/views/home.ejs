@@ -10,15 +10,18 @@
 
 
 <body>
-	<button class="arrow-left" onclick="gamepadInput('left')"></button>
-	<button class="arrow-right" onclick="gamepadInput('right')"></button>
-	<button class="arrow-up" onclick="gamepadInput('rotate')"></button>
-	<button class="arrow-down" onclick="gamepadInput('down')"></button>
-	
+	<div id="arrow">
+		<button class="arrow-left" onclick="gamepadInput('left')"></button>
+		<button class="arrow-right" onclick="gamepadInput('right')"></button>
+		<button class="arrow-up" onclick="gamepadInput('rotate')"></button>
+		<button class="arrow-down" onclick="gamepadInput('down')"></button>
+	</div>
 	<canvas>
 		<script type="text/javascript" src="js/tetris.js"></script>
 	</canvas>
 
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="js/socket.js"></script>
 </body>
 
 </html>
