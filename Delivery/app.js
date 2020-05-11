@@ -26,6 +26,8 @@ io.on('connection', (socket) => {
     socket.on('disconnected', () => {
         io.emit('message', 'Client disconnected');
     });
+
+    socket.emit('left', 'click left');
 });
 
 server.listen(port);
