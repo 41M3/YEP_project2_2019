@@ -23,11 +23,25 @@ app.use(express.static('public'));
 io.on('connection', (socket) => {
     socket.emit('message', 'welcome');
 
+    socket.on('left', () => {
+        socket.broadcast.emit('left');
+    });
+
+    socket.on('right', () => {
+        socket.broadcast.emit('right');
+    });
+
+    socket.on('up', () => {
+        socket.broadcast.emit('up');
+    });
+
+    socket.on('down', () => {
+        socket.broadcast.emit('down');
+    });
+
     socket.on('disconnected', () => {
         io.emit('message', 'Client disconnected');
     });
-
-    socket.emit('left', 'click left');
 });
 
 server.listen(port);
