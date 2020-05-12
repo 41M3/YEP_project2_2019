@@ -7,17 +7,14 @@ const
     socket = io();
 
 function clickLeft() {
-    console.log('click left');
     socket.emit('left');
 };
 
 function clickRight() {
-    console.log('click right');
     socket.emit('right');
 };
 
 function clickUp() {
-    console.log('click up');
     socket.emit('up');
 };
 

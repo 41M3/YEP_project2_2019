@@ -11,17 +11,14 @@ socket.on('message', message => {
 });
 
 socket.on('left', () => {
-    console.log('click left');
     arrow.getElementsByClassName('arrow-left')[0].click();
 });
 
 socket.on('right', () => {
-    console.log('click right');
     arrow.getElementsByClassName('arrow-right')[0].click();
 });
 
 socket.on('up', () => {
-    console.log('click up');
     arrow.getElementsByClassName('arrow-up')[0].click();
 });
 
