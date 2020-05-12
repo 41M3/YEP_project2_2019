@@ -1,0 +1,43 @@
+.arrow-up {
+	position: absolute;
+	top:50px;
+	left:150px;
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid blue;
+}
+
+.arrow-down {
+	position: absolute;
+	top:225px;
+	left:150px;
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-top: 100px solid blue;
+}
+  
+.arrow-left {
+	position: absolute;
+	top:135px;
+	left:10px
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-right: 100px solid red;
+	border-bottom: 50px solid transparent;
+}
+
+.arrow-right {
+	position: absolute;
+	top:135px;
+	left:270px;
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-left: 100px solid red;
+	border-bottom: 50px solid transparent;
+}
