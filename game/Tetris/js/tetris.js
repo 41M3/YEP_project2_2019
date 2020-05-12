@@ -539,6 +539,32 @@ function createDownButton() {
 	});
 }
 
+function gamepadInput(something) {
+	if (something == "rotate") {
+		if (canRotate(fallingShape))
+			rotate(fallingShape);
+	}
+	if (something == "right") {
+		console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		if (canMove(fallingShape, right))
+			move(right);
+	}
+	if (something == "left") {
+		if (canMove(fallingShape, left))
+			move(left);
+	}
+	if (something == "down") {
+		if (!fastDown) {
+			fastDown = true;
+			while (canMove(fallingShape, down)) {
+				move(down);
+				draw();
+			}
+			shapeHasLanded();
+		}
+	}
+}
+
 function init() {
 	initGrid();
 	selectShape();
