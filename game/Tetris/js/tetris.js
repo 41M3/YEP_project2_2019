@@ -38,13 +38,13 @@ var outerRect = { x: 5, y: 5, w: 630, h: 630 };
 var squareBorder = 'white';
 var titlebgColor = 'white';
 var textColor = 'black';
-var bgColor = '#DDEEFF';
-var gridColor = '#BECFEA';
-var gridBorderColor = '#7788AA';
+var bgColor = '#3792D1';
+var gridColor = '#E2DCDC';
+var gridBorderColor = '#000000';
 var largeStroke = 5;
 var smallStroke = 2;
 
-// position of falling shape
+
 var fallingShapeRow;
 var fallingShapeCol;
 
@@ -121,7 +121,6 @@ function canRotate(s) {
         return grid[newRow][newCol] === EMPTY;
     });
 }
-
 
 function rotate(s) {
     if (s === Shapes.Square)
@@ -291,13 +290,13 @@ function Scoreboard() {
                 this.addScore(10);
                 break;
             case 2:
-                this.addScore(20);
+                this.addScore(10);
                 break;
             case 3:
-                this.addScore(30);
+                this.addScore(10);
                 break;
             case 4:
-                this.addScore(40);
+                this.addScore(10);
                 break;
             default:
                 return;
@@ -400,6 +399,7 @@ function drawUI() {
     g.font = smallFont;
     g.fillText('hiscore    ' + scoreboard.getTopscore(), scoreX, scoreY);
     g.fillText('level      ' + scoreboard.getLevel(), scoreX, scoreY + 30);
+    
     g.fillText('lines      ' + scoreboard.getLines(), scoreX, scoreY + 60);
     g.fillText('score      ' + scoreboard.getScore(), scoreX, scoreY + 90);
 
