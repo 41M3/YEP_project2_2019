@@ -476,6 +476,8 @@ function initGrid() {
 }
 
 addEventListener('click', function () {
+	var audio = new Audio('tetris-theme-officiel.mp3');
+	audio.play();
 	startNewGame();
 }, {once : true});
 
@@ -545,7 +547,6 @@ function gamepadInput(something) {
 			rotate(fallingShape);
 	}
 	if (something == "right") {
-		console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		if (canMove(fallingShape, right))
 			move(right);
 	}
