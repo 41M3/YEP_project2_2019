@@ -65,7 +65,7 @@ class connexionPage extends StatelessWidget {
           ListTile(
             title: MaterialButton(
                 onPressed: () {
-                  url = searchController.text; //+ ':8081';
+                  url = searchController.text + ':8080';
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => controler()));
                 },
