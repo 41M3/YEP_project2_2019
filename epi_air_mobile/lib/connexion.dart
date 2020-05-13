@@ -41,7 +41,7 @@ class connexionPage extends StatelessWidget {
               cursorColor: Color(0xff850606),
               controller: searchController,
               decoration: InputDecoration(
-                hintText: "Exemple : 27",
+                hintText: "Exemple : 0.27",
                 labelText: "Web ID",
                 labelStyle: new TextStyle(color: Color(0xff0000ff)),
                 contentPadding:
@@ -64,7 +64,7 @@ class connexionPage extends StatelessWidget {
           ListTile(
             title: MaterialButton(
                 onPressed: () {
-                  url = "192.168.0." + searchController.text + ':8080/gamepad';
+                  url = "192.168." + searchController.text + ':8080/gamepad';
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => controler()));
                 },
