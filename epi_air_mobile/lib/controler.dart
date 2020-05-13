@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'connexion.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class controler extends StatefulWidget {
   @override
@@ -16,6 +17,24 @@ class _controler extends State<controler> {
 
   @override
   Widget build(BuildContext context) {
+
+    /*Alert(
+      context: context,
+      type: AlertType.success,
+      title: "CONNECTED",
+      //desc: "Enjoy playing with us",
+      buttons: [
+        DialogButton(
+          child: Text(
+            "COOL",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+          onPressed: () => Navigator.of(context).pop(true),
+          width: 120,
+        )
+      ],
+    ).show();*/
+
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: PreferredSize(
@@ -30,6 +49,7 @@ class _controler extends State<controler> {
           javascriptMode: JavascriptMode.unrestricted,
         ),
     );
+
   }
 
 

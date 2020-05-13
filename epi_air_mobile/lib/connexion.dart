@@ -58,14 +58,13 @@ class connexionPage extends StatelessWidget {
                     color: Color(0xff0000ff)
                   )
                 )
-                //labelStyle: new TextStyle(color: Colors.greenAccent),
               ),
             ),
           ),
           ListTile(
             title: MaterialButton(
                 onPressed: () {
-                  url = "192.168.0." + searchController.text + ':8080';
+                  url = "192.168.0." + searchController.text + ':8080/gamepad';
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => controler()));
                 },
