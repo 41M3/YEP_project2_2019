@@ -27,6 +27,7 @@ class _controler extends State<controler> {
           onWebViewCreated: (WebViewController webViewController) {
             _controller.complete(webViewController);
           },
+          javascriptMode: JavascriptMode.unrestricted,
         ),
     );
   }
