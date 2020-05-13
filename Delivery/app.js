@@ -39,6 +39,10 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('down');
     });
 
+    socket.on('start', () => {
+        socket.broadcast.emit('start');
+    });
+
     socket.on('disconnected', () => {
         io.emit('message', 'Client disconnected');
     });

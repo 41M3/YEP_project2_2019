@@ -23,8 +23,12 @@ socket.on('up', () => {
 });
 
 socket.on('down', () => {
-    console.log('click down');
     arrow.getElementsByClassName('arrow-down')[0].click();
+});
+
+socket.on('start', () => {
+    console.log('click start');
+    arrow.getElementsByClassName('start')[0].click();
 });
 
 socket.emit('disconnected');

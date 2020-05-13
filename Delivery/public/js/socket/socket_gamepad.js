@@ -18,6 +18,10 @@ function clickDown() {
     socket.emit('down');
 };
 
+function clickStart() {
+    socket.emit('start');
+};
+
 socket.on('message', message => {
     console.log(message);
 });
