@@ -1,0 +1,29 @@
+#tetris {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+#mobile {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+}
+
+#logo {
+    position: absolute;
+    top: 40%;
+    right: 45%;
+}
+
+#online {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+
+#runner {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}

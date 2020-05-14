@@ -5,25 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>EpiAir Console</title>
-  <link type="text/css" rel="stylesheet" href="css/gameStyle.css">
+  <link type="text/css" rel="stylesheet" href="css/home.css">
 </head>
 
-
 <body>
-	<div id="arrow" hidden="true">
-		<button class="arrow-left" onclick="gamepadInput('left')"></button>
-		<button class="arrow-right" onclick="gamepadInput('right')"></button>
-		<button class="arrow-up" onclick="gamepadInput('rotate')"></button>
-		<button class="arrow-down" onclick="gamepadInput('down')"></button>
-		<button class="start" onclick="gamepadInput('start')"></button>
-		
-	</div>
-	<canvas>
-		<script type="text/javascript" src="js/game/tetris.js"></script>
-	</canvas>
+    <div id="tetris">
+        <input type="image" src="img/tetris.png" onclick="window.location.href='http://localhost:8080/tetris'" />
+    </div>
 
-	<script src="/socket.io/socket.io.js"></script>
-	<script src="js/socket/socket_tetris.js"></script>
+    <div id="mobile">
+        <input type="image" src="img/mobile.png"/>
+    </div>
+
+    <div id="logo">
+        <img src="img/epiairconsole.png"/>
+    </div>
+
+    <div id="online">
+        <input type="image" src="img/online.png"/>
+    </div>
+
+    <div id="runner">
+        <input type="image" src="img/runner.png"/>
+    </div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
 </body>
 
 </html>
