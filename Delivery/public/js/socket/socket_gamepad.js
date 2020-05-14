@@ -14,11 +14,11 @@ function clickUp() {
 };
 
 function clickDown() {
-    console.log('click down');
     socket.emit('down');
 };
 
 function clickStart() {
+    console.log('start');
     socket.emit('start');
 };
 

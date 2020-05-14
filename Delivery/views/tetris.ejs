@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>EpiAir Console</title>
+  <link type="text/css" rel="stylesheet" href="css/gameStyle.css">
+</head>
+
+
+<body>
+	<div id="arrow" hidden="true">
+		<button class="arrow-left" onclick="gamepadInput('left')"></button>
+		<button class="arrow-right" onclick="gamepadInput('right')"></button>
+		<button class="arrow-up" onclick="gamepadInput('rotate')"></button>
+		<button class="arrow-down" onclick="gamepadInput('down')"></button>
+		<button class="start" onclick="gamepadInput('start')"></button>
+		
+	</div>
+	<canvas>
+		<script type="text/javascript" src="js/game/tetris.js"></script>
+	</canvas>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="js/socket/socket_tetris.js"></script>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>

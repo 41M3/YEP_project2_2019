@@ -5,6 +5,10 @@ router.get('/', function (req, res) {
     res.render('home');
 });
 
+router.get('/tetris', function (req, res) {
+    res.render('tetris');
+});
+
 router.get('/gamepad1', function (req, res) {
     res.render('gamepad1');
 });
