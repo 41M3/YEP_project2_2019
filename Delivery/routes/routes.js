@@ -9,6 +9,10 @@ router.get('/tetris', function (req, res) {
     res.render('tetris');
 });
 
+router.get('/runner', function (req, res) {
+    res.render('runner');
+});
+
 router.get('/gamepad1', function (req, res) {
     res.render('gamepad1');
 });
