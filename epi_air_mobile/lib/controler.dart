@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'connexion.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter/services.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+
+import 'connexion.dart';
+
 
 class controler extends StatefulWidget {
   @override
@@ -11,14 +14,37 @@ class controler extends StatefulWidget {
 }
 
 class _controler extends State<controler> {
-
   String oui = url;
   Completer<WebViewController> _controller = Completer<WebViewController>();
 
   @override
+  void initState(){
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+    ]);
+  }
+
+  @override
   Widget build(BuildContext context) {
 
-    /*Alert(
+    initState();
+
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar:
+          PreferredSize(preferredSize: Size.fromHeight(2.0), child: AppBar()),
+      body: WebView(
+        initialUrl: 'http://' + oui,
+        onWebViewCreated: (WebViewController webViewController) {
+          _controller.complete(webViewController);
+        },
+        javascriptMode: JavascriptMode.unrestricted,
+      ),
+    );
+  }
+
+  /*Alert(
       context: context,
       type: AlertType.success,
       title: "CONNECTED",
@@ -35,26 +61,9 @@ class _controler extends State<controler> {
       ],
     ).show();*/
 
-    return Scaffold(
-        backgroundColor: Colors.black,
-        appBar: PreferredSize(
-            preferredSize: Size.fromHeight(2.0),
-            child:AppBar(
-            )),
-        body: WebView(
-          initialUrl: 'http://' + oui,
-          onWebViewCreated: (WebViewController webViewController) {
-            _controller.complete(webViewController);
-          },
-          javascriptMode: JavascriptMode.unrestricted,
-        ),
-    );
-
-  }
-
 
   _googleAuth() {
-    String gootmp = oui +'/auth/google';
+    String gootmp = oui + '/auth/google';
     return FutureBuilder<WebViewController>(
       future: _controller.future,
       builder:
@@ -74,8 +83,9 @@ class _controler extends State<controler> {
       },
     );
   }
+
   _officeAuth() {
-    String offtmp = oui +'/auth/azureadoauth2';
+    String offtmp = oui + '/auth/azureadoauth2';
     return FutureBuilder<WebViewController>(
       future: _controller.future,
       builder:

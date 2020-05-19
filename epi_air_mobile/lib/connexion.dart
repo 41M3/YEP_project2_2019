@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 
 import 'controler.dart';
 import 'package:flutter/material.dart';
@@ -11,15 +13,31 @@ class connexionPage extends StatelessWidget {
   final TextEditingController searchController = TextEditingController();
 
   @override
+  void resetState(){
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
+  @override
   Widget build(BuildContext context) {
+
+    resetState();
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Color(0xff0000ff),
         title: Row(
-
           children: [
-            Container(padding: const EdgeInsets.all(8.0), child: Text('EpiAirConsole', style: TextStyle(fontSize: 45)), color: Color(0xff0000ff),)
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('EpiAirConsole', style: TextStyle(fontSize: 45)),
+              color: Color(0xff0000ff),
+            )
           ],
         ),
         centerTitle: true,
@@ -27,54 +45,81 @@ class connexionPage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(10.0),
         children: <Widget>[
-          new Container(
+          Container(
             constraints: BoxConstraints.tightFor(width: 100.0, height: 100.0),
           ),
-          new Container(
-            constraints: BoxConstraints.tightFor(width: 120.0, height: 120.0),
-            child: Image.asset("img/epiairconsole.png"),
-          ),
-          new Container(
-              constraints: BoxConstraints.tightFor(width: 100.0, height: 75.0)),
           ListTile(
+            leading: Image.asset("img/epiairconsole.png"),
             title: TextFormField(
               cursorColor: Color(0xff850606),
               controller: searchController,
               decoration: InputDecoration(
-                hintText: "Exemple : 192.168.0.27",
-                labelText: "Web ID",
-                labelStyle: new TextStyle(color: Color(0xff0000ff)),
-                contentPadding:
-                const EdgeInsets.fromLTRB(15.0, 20.0, 10.0, 25.0),
+                  hintText: "Exemple : 192.168.0.27",
+                  labelText: "Web ID",
+                  labelStyle: new TextStyle(color: Color(0xff0000ff)),
+                  contentPadding:
+                      const EdgeInsets.fromLTRB(15.0, 20.0, 10.0, 25.0),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                    borderSide: BorderSide(
-                      color: Color(0xff0000ff)
-                    )
-                  ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15.0),
-                  borderSide: BorderSide(
-                    color: Color(0xff0000ff)
-                  )
-                )
-              ),
+                      borderRadius: BorderRadius.circular(15.0),
+                      borderSide: BorderSide(color: Color(0xff0000ff))),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                      borderSide: BorderSide(color: Color(0xff0000ff)))),
             ),
+          ),
+          /*Container(
+            constraints: BoxConstraints.tightFor(width: 100.0, height: 100.0),
+          ),
+          Container(
+            alignment: Alignment.bottomLeft,
+            constraints: BoxConstraints.tightFor(width: 120.0, height: 120.0),
+            child: Image.asset("img/epiairconsole.png"),
+          ),*/
+          Container(
+              constraints: BoxConstraints.tightFor(width: 100.0, height: 75.0)),
+          Container(
+            alignment: Alignment.center,
+            constraints: BoxConstraints.tightFor(height: 150.0),
+            child: Image.asset("img/gamepad1.png"),
           ),
           ListTile(
             title: MaterialButton(
                 onPressed: () {
-                  url = searchController.text + ':8080/gamepad';
+                  url = searchController.text + ':8080/gamepad1';
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => controler()));
-                      //builder: (BuildContext context) => ()));
+                  //builder: (BuildContext context) => ()));
                 },
                 child: Text(
-                  "Connect",
+                  "Gamepad 1",
                   style: TextStyle(color: Colors.white, fontSize: 30),
                 ),
                 color: Color(0xff850606),
-    shape: RoundedRectangleBorder(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                )),
+          ),
+          Container(
+              constraints: BoxConstraints.tightFor(width: 100.0, height: 75.0)),
+          Container(
+            alignment: Alignment.center,
+            constraints: BoxConstraints.tightFor(height: 150.0),
+            child: Image.asset("img/gamepad2.png"),
+          ),
+          ListTile(
+            title: MaterialButton(
+                onPressed: () {
+                  url = searchController.text + ':8080/gamepad2';
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (BuildContext context) => controler()));
+                  //builder: (BuildContext context) => ()));
+                },
+                child: Text(
+                  "Gamepad 2",
+                  style: TextStyle(color: Colors.white, fontSize: 30),
+                ),
+                color: Color(0xff850606),
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 )),
           )
