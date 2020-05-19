@@ -481,66 +481,6 @@ addEventListener('click', function () {
 	startNewGame();
 }, {once : true});
 
-//BUTTONS
-
-function createRotateButton() {
-	var rotateButton = document.createElement("button");
-	rotateButton.innerHTML = "Rotate";
-
-	var body = document.getElementsByTagName("body")[0];
-	body.appendChild(rotateButton);
-
-	rotateButton.addEventListener ("click", function() {
-		if (canRotate(fallingShape))
-			rotate(fallingShape);
-	});
-}
-
-function createLeftButton() {
-	var leftButton = document.createElement("button");
-	leftButton.innerHTML = "Left";
-
-	var body = document.getElementsByTagName("body")[0];
-	body.appendChild(leftButton);
-
-	rotateButton.addEventListener ("click", function() {
-		if (canMove(fallingShape, left))
-			move(left);
-	});
-}
-
-function createRightButton() {
-	var rightButton = document.createElement("button");
-	rightButton.innerHTML = "Right";
-
-	var body = document.getElementsByTagName("body")[0];
-	body.appendChild(rightButton);
-
-	rotateButton.addEventListener ("click", function() {
-		if (canMove(fallingShape, right))
-			move(right);
-	});
-}
-
-function createDownButton() {
-	var downButton = document.createElement("button");
-	downButton.innerHTML = "Down";
-
-	var body = document.getElementsByTagName("body")[0];
-	body.appendChild(downButton);
-
-	rotateButton.addEventListener ("click", function() {
-		if (!fastDown) {
-			fastDown = true;
-			while (canMove(fallingShape, down)) {
-				move(down);
-				draw();
-			}
-			shapeHasLanded();
-		}
-	});
-}
-
 function gamepadInput(something) {
 	if (something == "rotate") {
 		if (canRotate(fallingShape))
@@ -563,6 +503,13 @@ function gamepadInput(something) {
 			}
 			shapeHasLanded();
 		}
+	}
+	if (something == "start") {
+		addEventListener('click', function () {
+			var audio = new Audio('tetris-theme-officiel.mp3');
+			audio.play();
+			startNewGame();
+		}, {once : true});
 	}
 }
 

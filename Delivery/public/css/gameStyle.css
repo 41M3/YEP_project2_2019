@@ -50,3 +50,11 @@ canvas {
 	border-left: 100px solid red;
 	border-bottom: 50px solid transparent;
 }
+
+.start {
+	position: absolute;
+	top:1600px;
+	left:270px;
+	width: 0;
+	height: 0;
+}
