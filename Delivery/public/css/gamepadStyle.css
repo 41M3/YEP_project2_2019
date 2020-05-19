@@ -1,43 +1,93 @@
 .arrow-up {
 	position: absolute;
-	top:50px;
-	left:150px;
+	top: 50px;
+	left: 150px;
 	width: 0;
 	height: 0;
-	border-left: 50px solid transparent;
-	border-right: 50px solid transparent;
+	fill-opacity: 0;
+	border-color: black;
+	border-left: 50px solid black;
+	border-right: 50px solid black;
 	border-bottom: 100px solid blue;
 }
 
 .arrow-down {
 	position: absolute;
-	top:225px;
-	left:150px;
+	top: 270px;
+	left: 150px;
 	width: 0;
 	height: 0;
-	border-left: 50px solid transparent;
-	border-right: 50px solid transparent;
+	border-color: black;
+	border-left: 50px solid black;
+	border-right: 50px solid black;
 	border-top: 100px solid blue;
 }
-  
+
 .arrow-left {
 	position: absolute;
-	top:135px;
-	left:10px
+	top: 160px;
+	left: 510px;
 	width: 0;
 	height: 0;
-	border-top: 50px solid transparent;
+	border-color: black;
+	border-top: 50px solid black;
 	border-right: 100px solid red;
-	border-bottom: 50px solid transparent;
+	border-bottom: 50px solid black;
 }
 
 .arrow-right {
 	position: absolute;
-	top:135px;
-	left:270px;
-	width: 0;
+	top: 160px;
+	left: 750px;
+	width: 100px;
 	height: 0;
-	border-top: 50px solid transparent;
+	border-color: black;
+	border-top: 50px solid black;
 	border-left: 100px solid red;
-	border-bottom: 50px solid transparent;
+	border-bottom: 50px solid black;
+}
+
+
+/* Fourth Gamepad */
+
+@font-face {
+	font-family: "bit";
+	/*src: url("game/css/8bit.ttf");*/
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none; /* Disable selection/copy in UIWebView */
+}
+
+html {
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+}
+
+body {
+	width: 50%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	touch-action: none;
+	-ms-touch-action: none;
+	overflow: hidden;
+	font-family: "bit";
+}
+
+canvas {
+	position: absolute;
+	top: 100px;
+	image-rendering: optimizeSpeed;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: -o-crisp-edges;
+	image-rendering: crisp-edges;
+	-ms-interpolation-mode: nearest-neighbor;
+	touch-action-delay: none;
+	touch-action: none;
+	-ms-touch-action: none;
 }
