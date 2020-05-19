@@ -17,4 +17,8 @@ router.get('/gamepad3', function (req, res) {
     res.render('gamepad3');
 });
 
+router.get('/gamepad4', function (req, res) {
+    res.render('gamepad3');
+});
+
 module.exports = router;
