@@ -67,6 +67,7 @@ class connexionPage extends StatelessWidget {
                   url = searchController.text + ':8080/gamepad';
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => controler()));
+                      //builder: (BuildContext context) => ()));
                 },
                 child: Text(
                   "Connect",
