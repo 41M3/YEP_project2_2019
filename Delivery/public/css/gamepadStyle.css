@@ -1,3 +1,7 @@
+Body {
+	Background-color: #000000;
+}
+
 .arrow-up {
 	position: absolute;
 	top: 50px;
@@ -45,6 +49,16 @@
 	border-top: 50px solid black;
 	border-left: 100px solid red;
 	border-bottom: 50px solid black;
+}
+
+/* Tird Gamepad */
+
+#arrow {
+	width: 70%;
+}
+
+#joystick {
+	width: 70%;
 }
 
 
