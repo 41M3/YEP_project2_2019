@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 import 'controler.dart';
+import 'beta.dart';
 import 'package:flutter/material.dart';
 
 String url;
@@ -13,7 +14,7 @@ class connexionPage extends StatelessWidget {
   final TextEditingController searchController = TextEditingController();
 
   @override
-  void resetState(){
+  void resetState() {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
@@ -24,7 +25,6 @@ class connexionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     resetState();
 
     return Scaffold(
@@ -41,6 +41,17 @@ class connexionPage extends StatelessWidget {
           ],
         ),
         centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.bug_report, color: Colors.white, size: 30),
+              onPressed: () {
+                url = searchController.text;
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => betaPage()));
+              }
+          ),
+        ],
+
       ),
       body: ListView(
         padding: const EdgeInsets.all(10.0),
@@ -58,7 +69,7 @@ class connexionPage extends StatelessWidget {
                   labelText: "Web ID",
                   labelStyle: new TextStyle(color: Color(0xff0000ff)),
                   contentPadding:
-                      const EdgeInsets.fromLTRB(15.0, 20.0, 10.0, 25.0),
+                  const EdgeInsets.fromLTRB(15.0, 20.0, 10.0, 25.0),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15.0),
                       borderSide: BorderSide(color: Color(0xff0000ff))),
