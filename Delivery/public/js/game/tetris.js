@@ -152,6 +152,7 @@ function shapeHasLanded() {
 	} else {
 		scoreboard.addLines(removeLines());
 	}
+	fastDown = false;
 	selectShape();
 }
 
