@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Gamepad</title>
+    <style>
+        Body {
+            Background-color: #000000;
+        }
+    </style>
+    <link rel="stylesheet" href="css/gamepadStyle.css">
+</head>
+
+<body>
+<div id="arrow" style="width:70%">
+    <button class="arrow-left" onclick="clickLeft()"></button>
+    <button class="arrow-right" onclick="clickRight()"></button>
+    <button class="arrow-up" onclick="clickUp()"></button>
+    <button class="arrow-down" onclick="clickDown()"></button>
+
+    <svg width="300%" height="100%" viewBox="0 0 290 115">
+        <polygon points="130,104 170,104 170,120 130,120" fill="yellow" onclick="console.log('start')"/>
+        <span style="position: absolute; top: 98mm; left:128mm; font-size: 32px; color: indigo"
+              onclick="console.log('start-txt')">START</span>
+    </svg>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/socket/socket_gamepad.js"></script>
+</body>
+
+</html>
