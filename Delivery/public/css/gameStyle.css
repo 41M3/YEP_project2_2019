@@ -61,16 +61,21 @@ canvas {
 
 #logo {
     position: absolute;
-    top: 0;
-    left: 0;
 }
 
 #ip{
+    position: absolute;
+    color: white;
+	right: 2px;
+	top: 0;
+}
+
+h1 {
 	position: absolute;
 	color: white;
-	left: 50%;
+	left: 45%;
 }
 
 body {
-    background-color: #202830;
+	background-color: #202830;
 }
