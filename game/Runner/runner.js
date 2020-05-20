@@ -782,3 +782,45 @@
       }
 
     },
+
+    reset:function() {
+
+      this.distance = 0;
+      this.player.reset();
+
+      /* Put all of our objects away. */
+      this.object_manager.meteor_pool.storeAll();
+      this.object_manager.smoke_pool.storeAll();
+      this.object_manager.tarpit_pool.storeAll();
+
+      this.speed = 3;
+
+    }
+
+  };
+
+      ////////////////////
+    //// INITIALIZE ////
+  ////////////////////
+
+  display.buffer.canvas.height = WORLD_HEIGHT;
+  display.buffer.canvas.width  = WORLD_WIDTH;
+
+  display.tile_sheet.image.src = "dino.png";
+  display.tile_sheet.image.addEventListener("load", function(event) {
+
+    display.tile_sheet.columns = this.width / TILE_SIZE;
+
+    display.resize();
+
+    game.engine.start();
+
+  });
+
+  window.addEventListener("resize", display.resize);
+  window.addEventListener("mousedown", controller.onOff);
+  window.addEventListener("mouseup", controller.onOff);
+  window.addEventListener("touchstart", controller.onOff);
+  window.addEventListener("touchend", controller.onOff);
+
+})();
