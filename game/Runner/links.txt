@@ -1,4 +1,0 @@
-http://blog.sklambert.com/html5-game-tutorial-module-pattern/
-
-
--> sprite https://www.youtube.com/watch?v=yna816VY8rg
