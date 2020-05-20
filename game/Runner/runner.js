@@ -588,4 +588,63 @@
         window.requestAnimationFrame(game.engine.loop);
 
       },
-  
+      
+      start:function() {// Start the game loop.
+
+        this.afrequest = window.requestAnimationFrame(this.loop);
+
+      },
+
+      update:function() {// Update the game logic.
+
+        /* Slowly increase speed and cap it when it gets too high. */
+        game.speed = (game.speed >= TILE_SIZE * 0.5)? TILE_SIZE * 0.5 : game.speed + 0.001;
+        /* Make sure the player's animation delay is keeping up with the scroll speed. */
+        game.player.animation.delay = Math.floor(10 - game.speed);
+        game.area.scroll();// Scroll!!!
+
+        if (game.player.alive) {
+
+          if (controller.active && !game.player.jumping) {// Get user input
+
+            controller.active = false;
+            game.player.jumping = true;
+            game.player.y_velocity -= 15;
+            game.player.animation.change([10], 15);
+
+          }
+
+          if (game.player.jumping == false) {
+
+            game.player.animation.change(display.tile_sheet.frame_sets[3], Math.floor(TILE_SIZE - game.speed));
+
+          }
+
+          game.player.update();
+
+          if (game.player.y > TILE_SIZE * 6 - TILE_SIZE * 0.25) {// Collide with floor
+
+            controller.active = false;
+            game.player.y = TILE_SIZE * 6 - TILE_SIZE * 0.25;
+            game.player.y_velocity = 0;
+            game.player.jumping = false;
+
+          }
+
+        } else {
+
+          game.player.x -= game.speed;
+          game.speed *= 0.9;
+
+          if (game.player.animation.frame_index == game.player.animation.frame_set.length - 1) game.reset();
+
+        }
+
+        game.player.animation.update();
+
+        game.object_manager.spawn();
+        game.object_manager.update();
+
+      }
+
+    },
