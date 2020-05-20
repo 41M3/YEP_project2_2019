@@ -29,4 +29,10 @@ router.get('/gamepad4', function (req, res) {
     res.render('gamepad4');
 });
 
+router.get('/ip', function (req, res) {
+    res.send(req.ip);
+});
+
+
+
 module.exports = router;
