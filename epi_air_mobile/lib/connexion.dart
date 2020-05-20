@@ -60,7 +60,7 @@ class connexionPage extends StatelessWidget {
             constraints: BoxConstraints.tightFor(width: 100.0, height: 100.0),
           ),
           ListTile(
-            leading: Image.asset("img/epiairconsole.png"),
+            leading: Image.asset("assets/epiairconsole.png"),
             title: TextFormField(
               cursorColor: Color(0xff850606),
               controller: searchController,
@@ -84,14 +84,14 @@ class connexionPage extends StatelessWidget {
           Container(
             alignment: Alignment.bottomLeft,
             constraints: BoxConstraints.tightFor(width: 120.0, height: 120.0),
-            child: Image.asset("img/epiairconsole.png"),
+            child: Image.asset("assets/epiairconsole.png"),
           ),*/
           Container(
               constraints: BoxConstraints.tightFor(width: 100.0, height: 75.0)),
           Container(
             alignment: Alignment.center,
             constraints: BoxConstraints.tightFor(height: 150.0),
-            child: Image.asset("img/gamepad1.png"),
+            child: Image.asset("assets/gamepad1.png"),
           ),
           ListTile(
             title: MaterialButton(
@@ -115,7 +115,7 @@ class connexionPage extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             constraints: BoxConstraints.tightFor(height: 150.0),
-            child: Image.asset("img/gamepad2.png"),
+            child: Image.asset("assets/gamepad2.png"),
           ),
           ListTile(
             title: MaterialButton(

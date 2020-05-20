@@ -35,7 +35,7 @@ class betaPage extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             constraints: BoxConstraints.tightFor(height: 150.0),
-            child: Image.asset("img/gamepad3.png"),
+            child: Image.asset("assets/gamepad3.png"),
           ),
           ListTile(
             title: MaterialButton(
@@ -59,7 +59,7 @@ class betaPage extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             constraints: BoxConstraints.tightFor(height: 150.0),
-            child: Image.asset("img/gamepad4.png"),
+            child: Image.asset("assets/gamepad4.png"),
           ),
           ListTile(
             title: MaterialButton(
