@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html>
+  
     <head>
-        <meta charset="utf-8"/>
-        <title>Still looking for a name</title>
-        <link type="text/css" rel="stylesheet" href="css/runner.css">
+        <meta name = "viewport" content = "width=device-width">
+        <meta name = "description" content = "YEP2 : Runner Game">
+
+        <link href = "css/runner.css" rel = "stylesheet" type = "text/css">
+
     </head>
-    <body style="margin: 0px; overflow: hidden">
 
-        <div id="logo">
-            <input type="image" src="img/epiairconsole.png" onclick="window.location.href='http://localhost:8080'" />
-        </div>
-    	<div id="ip">
-            <h3>Votre ID:</h3>
-        </div>
-
-        
-        <!-- <button class="arrow-left" onclick="gamepadInput('left')"></button>
-	<button class="arrow-right" onclick="gamepadInput('right')"></button>
-	<button class="arrow-up" onclick="gamepadInput('rotate')"></button>
-    <button class="arrow-down" onclick="gamepadInput('down')"></button> -->
+  <body>
+    <h1>Runner-Game</h1>
     
-        <canvas id="canvas"></canvas>
-        
-        <script src="js/game/runner.js"></script>
-	    <script src="js/getIp.js"></script>
-        
-    </body>
+    <div id="logo">
+      <input type="image" src="img/epiairconsole.png" onclick="window.location.href='http://localhost:8080'" />
+    </div>
+    <div id="ip">
+      <h3>Votre ID:</h3>
+    </div>
+
+    <div id="arrow">
+      <button class="jump" onclick="gamepadInput('jump')"><h1>Grosse</h1></button>
+      <button class="start" onclick="gamepadInput('start')"></button>
+    </div>
+
+    <canvas></canvas>
+
+    <script src = "js/game/runner.js" type = "text/javascript"></script>
+	  <script src="/socket.io/socket.io.js"></script>
+    <script src = "js/socket/socket_runner.js" type = "text/javascript"></script>
+    <script src="js/getIp.js" type="text/javascript"></script>
+
+  </body>
+
 </html>

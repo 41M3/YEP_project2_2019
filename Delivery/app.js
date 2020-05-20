@@ -39,6 +39,10 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('down');
     });
 
+    socket.on('jump', () => {
+        socket.broadcast.emit('jump');
+    });
+
     socket.on('start', () => {
         socket.broadcast.emit('start');
     });
