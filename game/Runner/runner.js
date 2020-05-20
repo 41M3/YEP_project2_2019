@@ -756,3 +756,29 @@
       }
 
     },
+
+    player: {
+
+      alive:true,
+      animation:new Animation([15], 10),
+      jumping:false,
+      height: 32, width: 56,
+      x:8, y:TILE_SIZE * 6 - TILE_SIZE * 0.25,
+      y_velocity:0,
+
+      reset:function() {
+
+        this.alive = true;
+        this.x = 8;
+
+      },
+
+      update:function() {
+
+        game.player.y_velocity += 0.5;
+        game.player.y += game.player.y_velocity;
+        game.player.y_velocity *= 0.9;
+
+      }
+
+    },
