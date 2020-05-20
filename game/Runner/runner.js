@@ -648,3 +648,111 @@
       }
 
     },
+
+    /* Manages all non player objects. */
+    object_manager: {
+
+      count:0,
+      delay:100,
+
+      meteor_pool:new Pool(Meteor),
+      smoke_pool:new Pool(Smoke),
+      tarpit_pool:new Pool(TarPit),
+
+      spawn:function() {
+
+        this.count ++;
+
+        if (this.count == this.delay) {
+
+          this.count = 0;
+          this.delay = 100;// + Math.floor(Math.random() * 200 - 10 * game.speed);
+
+          /* Pick randomly between tarpits and meteors */
+          if (Math.random() > 0.5) {
+
+            this.tarpit_pool.get( {x: WORLD_WIDTH, y:WORLD_HEIGHT - 30} );
+
+          } else {
+
+            this.meteor_pool.get( {x: WORLD_WIDTH * 0.2, y: -32 } );
+
+          }
+
+        }
+
+      },
+
+      update:function() {
+
+        for (let index = this.meteor_pool.objects.length - 1; index > -1; -- index) {
+
+          let meteor = this.meteor_pool.objects[index];
+
+          meteor.update();
+
+          meteor.collideObject(game.player);
+
+          meteor.collideWorld();
+
+          if (meteor.smoke) {
+
+            meteor.smoke = false;
+
+            let parameters = { x:meteor.x + Math.random() * meteor.width, y:undefined, x_velocity:undefined, y_velocity:undefined };
+
+            if (meteor.grounded) {
+
+              parameters.y = meteor.y + Math.random() * meteor.height * 0.5;
+              parameters.x_velocity = Math.random() * 2 - 1 - game.speed;
+              parameters.y_velocity = Math.random() * -1;
+
+            } else {
+
+              parameters.y = meteor.y + Math.random() * meteor.height;
+              parameters.x_velocity = meteor.x_velocity * Math.random();
+              parameters.y_velocity = meteor.y_velocity * Math.random();
+
+            }
+
+            this.smoke_pool.get(parameters);
+
+          }
+
+          if (!meteor.alive) {
+
+            this.meteor_pool.store(meteor);
+
+          };
+
+        }
+
+        for (let index = this.smoke_pool.objects.length - 1; index > -1; -- index) {
+
+          let smoke = this.smoke_pool.objects[index];
+
+          smoke.update();
+
+          smoke.collideWorld();
+
+          if (!smoke.alive) this.smoke_pool.store(smoke);
+
+        }
+
+        for (let index = this.tarpit_pool.objects.length - 1; index > -1; -- index) {
+
+          let tarpit = this.tarpit_pool.objects[index];
+
+          tarpit.update();
+
+          tarpit.collideObject(game.player);
+
+          tarpit.collideWorld();
+
+          if (!tarpit.alive) this.tarpit_pool.store(tarpit);
+
+        }
+
+      }
+
+    },
