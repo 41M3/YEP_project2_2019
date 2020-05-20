@@ -30,7 +30,8 @@ router.get('/gamepad4', function (req, res) {
 });
 
 router.get('/ip', function (req, res) {
-    res.send(req.ip);
+    var ip = req.ip.substr(7);
+    res.send(ip);
 });
 
 

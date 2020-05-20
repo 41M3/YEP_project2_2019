@@ -7,3 +7,9 @@ body {
     top: 0;
     right: 0;
 }
+
+#ip{
+	position: absolute;
+	color: white;
+	left: 50%;
+}

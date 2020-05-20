@@ -65,6 +65,12 @@ canvas {
     left: 0;
 }
 
+#ip{
+	position: absolute;
+	color: white;
+	left: 50%;
+}
+
 body {
     background-color: #202830;
 }
