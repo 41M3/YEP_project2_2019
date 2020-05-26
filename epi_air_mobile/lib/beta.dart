@@ -3,12 +3,38 @@ import 'dart:ui';
 import 'package:epiairmobile/connexion.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 import 'controler.dart';
 import 'package:flutter/material.dart';
 
 class betaPage extends StatelessWidget {
   String ui = url;
+  var alertStyle = AlertStyle(
+    isCloseButton: false,
+    descStyle: TextStyle(fontWeight: FontWeight.bold),
+    animationDuration: Duration(milliseconds: 200),
+    alertBorder: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(30.0),
+      side: BorderSide(color: Color(0xff48ff00)),
+    ),
+    titleStyle: TextStyle(
+      color: Colors.white,
+    ),
+  );
+
+  void connectedAlert(context) {
+    Alert(style: alertStyle, context: context, title: "Connected !", buttons: [
+      DialogButton(
+        child: Text(
+          "COOL",
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+        onPressed: () => Navigator.pop(context),
+        color: Color(0xff48ff00),
+      )
+    ]).show();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +69,7 @@ class betaPage extends StatelessWidget {
                   url = ui + ':8080/gamepad3';
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => controler()));
-                  //builder: (BuildContext context) => ()));
+                  connectedAlert(context);
                 },
                 child: Text(
                   "Gamepad 3",
@@ -54,7 +80,13 @@ class betaPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15.0),
                 )),
           ),
-          Container(
+        ],
+      ),
+    );
+  }
+}
+
+/*Container(
               constraints: BoxConstraints.tightFor(width: 100.0, height: 75.0)),
           Container(
             alignment: Alignment.center,
@@ -76,9 +108,4 @@ class betaPage extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 )),
-          )
-        ],
-      ),
-    );
-  }
-}
+          )*/

@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 import 'controler.dart';
 import 'beta.dart';
@@ -12,15 +13,40 @@ String url;
 
 class connexionPage extends StatelessWidget {
   final TextEditingController searchController = TextEditingController();
+  var alertStyle = AlertStyle(
+    isCloseButton: false,
+    descStyle: TextStyle(fontWeight: FontWeight.bold),
+    animationDuration: Duration(milliseconds: 200),
+    alertBorder: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(30.0),
+      side: BorderSide(color: Color(0xff48ff00)),
+    ),
+    titleStyle: TextStyle(
+      color: Colors.white,
+    ),
+  );
 
   @override
   void resetState() {
     SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeRight,
-      DeviceOrientation.landscapeLeft,
+      //DeviceOrientation.landscapeRight,
+      //DeviceOrientation.landscapeLeft,
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+  }
+
+  void connectedAlert(context) {
+    Alert(style: alertStyle, context: context, title: "Connected !", buttons: [
+      DialogButton(
+        child: Text(
+          "COOL",
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+        onPressed: () => Navigator.pop(context),
+        color: Color(0xff48ff00),
+      )
+    ]).show();
   }
 
   @override
@@ -48,10 +74,8 @@ class connexionPage extends StatelessWidget {
                 url = searchController.text;
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => betaPage()));
-              }
-          ),
+              }),
         ],
-
       ),
       body: ListView(
         padding: const EdgeInsets.all(10.0),
@@ -69,7 +93,7 @@ class connexionPage extends StatelessWidget {
                   labelText: "Web ID",
                   labelStyle: new TextStyle(color: Color(0xff0000ff)),
                   contentPadding:
-                  const EdgeInsets.fromLTRB(15.0, 20.0, 10.0, 25.0),
+                      const EdgeInsets.fromLTRB(15.0, 20.0, 10.0, 25.0),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15.0),
                       borderSide: BorderSide(color: Color(0xff0000ff))),
@@ -78,14 +102,6 @@ class connexionPage extends StatelessWidget {
                       borderSide: BorderSide(color: Color(0xff0000ff)))),
             ),
           ),
-          /*Container(
-            constraints: BoxConstraints.tightFor(width: 100.0, height: 100.0),
-          ),
-          Container(
-            alignment: Alignment.bottomLeft,
-            constraints: BoxConstraints.tightFor(width: 120.0, height: 120.0),
-            child: Image.asset("assets/epiairconsole.png"),
-          ),*/
           Container(
               constraints: BoxConstraints.tightFor(width: 100.0, height: 75.0)),
           Container(
@@ -99,7 +115,7 @@ class connexionPage extends StatelessWidget {
                   url = searchController.text + ':8080/gamepad1';
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => controler()));
-                  //builder: (BuildContext context) => ()));
+                  connectedAlert(context);
                 },
                 child: Text(
                   "Gamepad 1",
@@ -123,7 +139,7 @@ class connexionPage extends StatelessWidget {
                   url = searchController.text + ':8080/gamepad2';
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (BuildContext context) => controler()));
-                  //builder: (BuildContext context) => ()));
+                  connectedAlert(context);
                 },
                 child: Text(
                   "Gamepad 2",
