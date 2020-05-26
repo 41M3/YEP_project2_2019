@@ -13,14 +13,26 @@
 
 <body>
 <div id="arrow">
-    <button class="arrow-left" onclick="clickLeft()"></button>
-    <button class="arrow-right" onclick="clickRight()"></button>
-    <button class="arrow-up" onclick="clickUp()"></button>
-    <button class="arrow-down" onclick="clickDown()"></button>
+    <!-- <button class="arrow-left" onclick="clickLeft()"></button>
+     <button class="arrow-right" onclick="clickRight()"></button>
+     <button class="arrow-up" onclick="clickUp()"></button>
+     <button class="arrow-down" onclick="clickDown()"></button>-->
 
     <svg width="300%" height="100%" viewBox="0 0 290 115">
+        <polygon points="64,14 75,36 53,36" fill="blue"/>
+        <polygon class="click-square" points="75,36 75,14 53,14 53,36" fill-opacity="0" onclick="clickUp()"/>
+
+        <polygon points="64,114 75,92 53,92" fill="blue"/>
+        <polygon points="75,92 75,114 53,114 53,92" fill-opacity="0" onclick="clickDown()"/>
+
+        <polygon points="154,64 176,75 176,53" fill="red"/>
+        <polygon points="36,75 36,53 14,53 14,75" fill-opacity="0" onclick="clickLeft()"/>
+
+        <polygon id="Triangle" fill="red" points="254,64 232,75 232,53"/>
+        <polygon points="92,75 92,53 114,53 114,75" fill-opacity="0" onclick="clickRight()"/>
+
         <polygon points="130,104 170,104 170,120 130,120" fill="yellow" onclick="clickStart()"/>
-        <span style="position: absolute; top: 98mm; left:128mm; font-size: 32px; color: indigo" onclick="clickStart(), console.log('start')">START</span>
+        <text x="150" y="113" text-anchor="middle" fill="indigo" font-size="10" onclick="clickStart()">START</text>
     </svg>
 </div>
 <script src="/socket.io/socket.io.js"></script>
