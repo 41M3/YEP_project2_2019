@@ -219,15 +219,7 @@ TarPit.prototype = {
 var controller, display, game;
 /* This is awesome. I can use the same event handler for all mouseup, mousedown,
 touchstart, and touchend events. This controller works on everything! */
-controller = {
-  active:false, state:false,
-  onOff:function(event) {
-    event.preventDefault();
-    let key_state = (event.type == "mousedown" || event.type == "touchstart") ? true : false;
-    if (controller.state != key_state) controller.active = key_state;
-    controller.state  = key_state;
-  }
-};
+
 
 display = {
   buffer:document.createElement("canvas").getContext("2d"),
@@ -503,6 +495,25 @@ display.tile_sheet.image.addEventListener("load", function(event) {
   display.resize();
   game.engine.start();
 });
+
+controller = {
+  active:false, state:false,
+  onOff:function(event) {
+    event.preventDefault();
+    let key_state = (event.type == "mousedown" || event.type == "touchstart") ? true : false;
+    if (controller.state != key_state) controller.active = key_state;
+    controller.state  = key_state;
+  }
+};
+
+function gamepadInput(command) {
+  if (command == "jump") {
+    //window.alert("aaaaaaaa");
+    controller.active = true;
+    controller.state = true;
+    controller.key_state = true;
+  }
+}
 
 window.addEventListener("resize", display.resize);
 window.addEventListener("mousedown", controller.onOff);
