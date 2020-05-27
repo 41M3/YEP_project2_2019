@@ -220,7 +220,8 @@
         VISIBILITY: 'visibilitychange',
         BLUR: 'blur',
         FOCUS: 'focus',
-        LOAD: 'load'
+        LOAD: 'load',
+        SOMETHING: null
     };
 
 
@@ -609,11 +610,13 @@
                     case events.KEYDOWN:
                     case events.TOUCHSTART:
                     case events.MOUSEDOWN:
+                    case this.SOMETHING === "down":
                         this.onKeyDown(e);
                         break;
                     case events.KEYUP:
                     case events.TOUCHEND:
                     case events.MOUSEUP:
+                    case this.SOMETHING === "up":
                         this.onKeyUp(e);
                         break;
                 }
@@ -2394,6 +2397,15 @@
         },
     };
 })();
+
+function gamepadInput(key) {
+    if (key === "up")
+        this.onKeyUp("32");
+    if (key === "down")
+        this.onKeyDown("32");
+    //this.SOMETHING = key;
+    //this.event.SOMETHING = key;
+}
 
 
 function onDocumentLoad() {
