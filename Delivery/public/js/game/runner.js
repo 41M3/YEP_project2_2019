@@ -270,11 +270,7 @@ display = {
       let frame = this.tile_sheet.frames[meteor.animation.frame_value];
       this.buffer.drawImage(this.tile_sheet.image, frame.x, frame.y, frame.width, frame.height, meteor.x, meteor.y, meteor.width, meteor.height);
     }
-    for (let index = game.object_manager.smoke_pool.objects.length - 1; index > -1; -- index) {
-      let smoke = game.object_manager.smoke_pool.objects[index];
-      let frame = this.tile_sheet.frames[smoke.animation.frame_value];
-      this.buffer.drawImage(this.tile_sheet.image, frame.x, frame.y, frame.width, frame.height, smoke.x, smoke.y, smoke.width, smoke.height);
-    }
+    
     if (game.object_manager.meteor_pool.objects.length != 0) {
       this.tint = (this.tint < 80) ? this.tint + 1 : 80;
     } else {
